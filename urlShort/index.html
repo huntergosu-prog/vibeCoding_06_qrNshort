@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>URL 단축기</title>
+    <style>
+        body { font-family: sans-serif; background: #1e293b; color: white; text-align: center; padding-top: 80px; }
+        .card { background: #334155; padding: 50px; border-radius: 20px; display: inline-block; box-shadow: 0 10px 15px rgba(0,0,0,0.3); text-align: left; }
+        input { padding: 15px; width: 300px; border: none; border-radius: 5px; margin-right: 10px; background: #1e293b; color: white; }
+        button { padding: 15px 25px; background: #10b981; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        .result { margin-top: 20px; padding: 15px; background: #0f172a; border-radius: 5px; display: none; }
+        .back { display: block; margin-bottom: 30px; color: #94a3b8; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <a href="../index.html" class="back">← 뒤로가기</a>
+        <h2 style="color:#38bdf8;">URL 단축기</h2>
+        <p style="color:#94a3b8; margin-bottom:30px;">긴 URL을 짧고 간편하게 만드세요</p>
+        <input type="text" id="urlInput" placeholder="단축할 URL을 입력하세요...">
+        <button onclick="shortenURL()">단축하기</button>
+        <div id="result" class="result">
+            단축된 URL: <a href="#" id="shortUrl" style="color:#38bdf8;"></a>
+        </div>
+    </div>
+    <script>
+        function shortenURL() {
+            const input = document.getElementById("urlInput").value;
+            if(!input) return alert("URL을 입력해주세요!");
+            document.getElementById("result").style.display = "block";
+            document.getElementById("shortUrl").innerText = "https://sdu.short/" + Math.random().toString(36).substr(2, 6);
+        }
+    </script>
+</body>
+</html>

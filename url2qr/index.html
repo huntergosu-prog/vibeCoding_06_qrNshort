@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>QR 코드 생성기</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        body { font-family: sans-serif; text-align: center; background: #fff5f8; padding-top: 80px; }
+        .card { background: white; padding: 40px; border-radius: 20px; display: inline-block; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        input { padding: 12px; width: 300px; border: 1px solid #ddd; border-radius: 5px; }
+        button { padding: 12px 25px; background: #ff4081; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        #qrcode { margin-top: 30px; display: flex; justify-content: center; }
+        .back { display: block; margin-top: 20px; color: #666; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2 style="background:#ffc107; display:inline-block; padding:5px 10px;">URL2QR</h2>
+        <br><br>
+        <input type="text" id="urlInput" placeholder="웹사이트 URL을 입력하세요...">
+        <button onclick="generateQR()">생성하기</button>
+        <div id="qrcode"></div>
+        <a href="../index.html" class="back">← 뒤로가기</a>
+    </div>
+    <script>
+        function generateQR() {
+            document.getElementById("qrcode").innerHTML = "";
+            new QRCode(document.getElementById("qrcode"), document.getElementById("urlInput").value);
+        }
+    </script>
+</body>
+</html>
